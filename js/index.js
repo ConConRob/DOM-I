@@ -43,64 +43,58 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //Give the nav links text
 const navLinks = qsa('nav a');
-// navLinks[0].innerText = 'Services';
-// navLinks[1].innerText = 'Prodecut'
-// navLinks[2].innerText = 'Vision'
-// navLinks[3].innerText = 'Features'
-// navLinks[4].innerText = 'About'
-// navLinks[5].innerText = 'Contact'
+//loop all the
 for (let key in siteContent.nav){
-
   if (!(key === 'img-src')) {
     navLinks[(key[key.length-1])-1].innerText = siteContent.nav[key];
   }
-  
 }
 
 //============= CTA ==============
 //h1 text
 const title = qs('h1');
-title.innerHTML = 'DOM<br> Is<br> Awesome';
+title.innerText = siteContent.cta.h1;
 //button text
 const buttonHeader = qs('.cta button');
-buttonHeader.innerText = 'Get Started';
+buttonHeader.innerText = siteContent.cta.button;
 //header image add image
 const imageHeader = qs('.cta img');
-imageHeader.src = 'img/header-img.png';
+imageHeader.src = siteContent.cta["img-src"];
 
 //==========MAIN CONTENT========
 // headers 
 const headersContent = qsa('.text-content h4');
-headersContent[0].innerText = 'Features'
-headersContent[1].innerText = 'About'
-headersContent[2].innerText = 'Services'
-headersContent[3].innerText = 'Product'
-headersContent[4].innerText = 'Vision'
+headersContent[0].innerText = siteContent["main-content"]['features-h4'];
+headersContent[1].innerText = siteContent["main-content"]['about-h4'];
+headersContent[2].innerText = siteContent["main-content"]['services-h4'];
+headersContent[3].innerText = siteContent["main-content"]['product-h4'];
+headersContent[4].innerText = siteContent["main-content"]['vision-h4'];
 //paragraphs
 const paragraphsContent = qsa('.text-content p');
-paragraphsContent[0].innerText = 'Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
-paragraphsContent[1].innerText = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
-paragraphsContent[2].innerText = 'Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
-paragraphsContent[3].innerText = 'Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
-paragraphsContent[4].innerText = 'Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+paragraphsContent[0].innerText = siteContent["main-content"]['features-content'];
+paragraphsContent[1].innerText = siteContent["main-content"]['about-content'];
+paragraphsContent[2].innerText = siteContent["main-content"]['services-content'];
+paragraphsContent[3].innerText = siteContent["main-content"]['product-content'];
+paragraphsContent[4].innerText = siteContent["main-content"]['vision-content'];
 //mid image 
 const imageContent =qs('.main-content .middle-img');
-imageContent.src = 'img/mid-page-accent.jpg'
-
+imageContent.src = siteContent["main-content"]['middle-img-src'];
 //==================CONTACT=====================
 //header 
 const headerContact = qs('.contact h4');
-headerContact.innerText = 'Contact';
+headerContact.innerText = siteContent['contact']['contact-h4'];
 //Paragraphs
 const paragraphsContact = qsa('.contact p');
+//paragraphsContact[0].innerText = siteContent['contact']['address'];
+//better then using the sitecontent 
 paragraphsContact[0].innerHTML = '123 Way 456 Street<br>Somewhere, USA'
-paragraphsContact[1].innerText = '1 (888) 888-8888';
-paragraphsContact[2].innerText = 'sales@greatidea.io';
+paragraphsContact[1].innerText = siteContent['contact']['phone'];
+paragraphsContact[2].innerText = siteContent['contact']['phone'];
 
 //=================FOOTER=======================
 //paragraph
 const paragraphFooter = qs('footer p');
-paragraphFooter.innerText = 'Copyright Great Idea! 2018';
+paragraphFooter.innerText = siteContent.footer.copyright;
 
 function qs(tag){
   return document.querySelector(tag);
