@@ -1,4 +1,4 @@
-const siteContent = {
+const siteContent = { 
   "nav": {
     "nav-item-1": "Services",
     "nav-item-2": "Product",
@@ -40,3 +40,54 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//Give the nav links text
+const navLinks = qsa('nav a');
+navLinks[0].innerText = 'Services';
+navLinks[1].innerText = 'Prodecut'
+navLinks[2].innerText = 'Vision'
+navLinks[3].innerText = 'Features'
+navLinks[4].innerText = 'About'
+navLinks[5].innerText = 'Contact'
+
+//============= CTA ==============
+//h1 text
+const title = qs('h1');
+title.innerHTML = 'DOM<br> Is<br> Awesome';
+//button text
+const buttonHeader = qs('.cta button');
+buttonHeader.innerText = 'Get Started';
+//header image add image
+const imageHeader = qs('.cta img');
+imageHeader.src = 'img/header-img.png';
+
+//==========MAIN CONTENT========
+// headers 
+const headersContent = qsa('.text-content h4');
+headersContent[0].innerText = 'Features'
+headersContent[1].innerText = 'About'
+headersContent[2].innerText = 'Services'
+headersContent[3].innerText = 'Product'
+headersContent[4].innerText = 'Vision'
+//paragraphs
+const paragraphsContent = qsa('.text-content p');
+paragraphsContent[0].innerText = 'Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+paragraphsContent[1].innerText = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+paragraphsContent[2].innerText = 'Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+paragraphsContent[3].innerText = 'Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+paragraphsContent[4].innerText = 'Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+//mid image 
+const imageContent =qs('.main-content .middle-img');
+imageContent.src = 'img/mid-page-accent.jpg'
+
+//==================CONTACT=====================
+ //header 
+ const headerContact = qs('.contact h4');
+ headerContact.innerText = 'Contact';
+
+function qs(tag){
+  return document.querySelector(tag);
+}
+function qsa(tag){
+  return document.querySelectorAll(tag);
+}
