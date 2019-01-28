@@ -4,6 +4,7 @@ const msHundreds = document.getElementById('msHundreds');
 const msTens = document.getElementById('msTens');
 const timer = document.querySelector('.digits')
 const buttonStart = document.getElementById('startButton');
+const buttonReset = document.getElementById('resetButton');
 const intervalOfTimer = 10;//ms
 const stopTime = 10000;
 //function to start counter with closure
@@ -65,7 +66,7 @@ const curTime = counter(intervalOfTimer);
         //STOP
         window.clearInterval(intervalTimer); 
         toggleClass(timer, 'redDigit');
-        buttonStart.disabled = false;
+        buttonReset.disabled = false;
     } else{
         const curArr = valsOfTimer(curTime);
         updateTimerDisplay(curArr); 
@@ -75,15 +76,17 @@ const curTime = counter(intervalOfTimer);
 function resetTimerDisplay(){
     updateTimerDisplay(['-','-','-','-']);
     timer.classList = 'digits';
-    buttonStart.disabled = true;
+    buttonStart.disabled = false;
+    buttonReset.disabled = true;
 }
 let counter;
 let intervalTimer;
 function start(){
-    resetTimerDisplay();
+    buttonStart.disabled = true;
     counter = initCounter();
     intervalTimer = window.setInterval(controller , intervalOfTimer)
 }
 
 
 buttonStart.addEventListener('click', start);
+buttonReset.addEventListener('click', resetTimerDisplay)
