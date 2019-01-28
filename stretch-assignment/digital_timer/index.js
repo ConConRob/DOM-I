@@ -2,9 +2,11 @@ const secondTens = document.getElementById('secondTens');
 const secondOnes = document.getElementById('secondOnes');
 const msHundreds = document.getElementById('msHundreds');
 const msTens = document.getElementById('msTens');
-secondOnes.innerText = "-"
+const timer = document.querySelector('.digits')
+
 const intervalOfTimer = 10;//ms
 const stopTime = 10000;
+//function to start counter with closure
 function initCounter(){
     let count = 0;
 
@@ -12,8 +14,6 @@ function initCounter(){
         return count+=addToCount
     }
 }
-const counter = initCounter();
-
 //get [.01s, .1s, 1s, 10s]
 function valsOfTimer(curTime){
     curStr = curTime.toString();
@@ -36,11 +36,15 @@ function valsOfTimer(curTime){
     }
     return arr;
 }
-//update DOM timer
+//update  timer display text
 function updateText(element, text){
     element.innerText = text;
 }
-//Loop DOM of Time 
+//add timer display class
+function addClass(element, classToAdd){
+    element.classList.add(classToAdd)
+}
+//Loop elements of Timer updating time
 function updateTimerDisplay(curArr){
     curArr.forEach((digit, index)=>{
         if(index===0){
@@ -60,6 +64,7 @@ const curTime = counter(intervalOfTimer);
     if (curTime>stopTime){
         //STOP
         window.clearInterval(intervalTimer); 
+        addClass(timer, 'redDigit');
     } else{
         const curArr = valsOfTimer(curTime);
         updateTimerDisplay(curArr); 
@@ -67,5 +72,5 @@ const curTime = counter(intervalOfTimer);
 
 }
 
-
+const counter = initCounter();
 const intervalTimer = window.setInterval(controller , intervalOfTimer)
