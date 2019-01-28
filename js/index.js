@@ -55,6 +55,7 @@ for (let key in siteContent.nav){
 const navHeader = qs('header nav');
 //beginning nav element
 const linkBeginning = document.createElement('a');
+linkBeginning.href = '#';
 linkBeginning.innerText = 'Beginning';
 linkBeginning.classList.add('green');
 navHeader.appendChild(linkBeginning);
@@ -62,7 +63,6 @@ navHeader.appendChild(linkBeginning);
 const linkTeam = linkBeginning.cloneNode(true);
 linkTeam.innerText = 'Team';
 navHeader.appendChild(linkTeam);
-
 //============= CTA ==============
 //h1 text
 const title = qs('h1');
@@ -73,7 +73,6 @@ buttonHeader.innerText = siteContent.cta.button;
 //header image add image
 const imageHeader = qs('.cta img');
 imageHeader.src = siteContent.cta["img-src"];
-
 //==========MAIN CONTENT========
 // headers 
 const headersContent = qsa('.text-content h4');
@@ -103,7 +102,6 @@ const paragraphsContact = qsa('.contact p');
 paragraphsContact[0].innerHTML = '123 Way 456 Street<br>Somewhere, USA'
 paragraphsContact[1].innerText = siteContent['contact']['phone'];
 paragraphsContact[2].innerText = siteContent['contact']['phone'];
-
 //=================FOOTER=======================
 //paragraph
 const paragraphFooter = qs('footer p');
