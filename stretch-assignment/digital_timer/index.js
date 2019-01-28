@@ -18,21 +18,21 @@ const counter = initCounter();
 function valsOfTimer(curTime){
     curStr = curTime.toString();
     const arr =[]
-    if(curStr.length>=1){
-        //.01s
-        arr.push(curStr[curStr.length-1]);
-    }
     if(curStr.length>=2){
-        //.1s
+        //.01s
         arr.push(curStr[curStr.length-2]);
     }
     if(curStr.length>=3){
-        //1s
+        //.1s
         arr.push(curStr[curStr.length-3]);
     }
     if(curStr.length>=4){
-        //10s
+        //1s
         arr.push(curStr[curStr.length-4]);
+    }
+    if(curStr.length>=5){
+        //10s
+        arr.push(curStr[curStr.length-5]);
     }
     return arr;
 }
