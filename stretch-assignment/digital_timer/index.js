@@ -4,7 +4,7 @@ const msHundreds = document.getElementById('msHundreds');
 const msTens = document.getElementById('msTens');
 secondOnes.innerText = "-"
 const intervalOfTimer = 10;//ms
-
+const stopTime = 10000;
 function initCounter(){
     let count = 0;
 
@@ -57,8 +57,14 @@ function updateTimerDisplay(curArr){
 //THIS WILL RUN EVERY  intervalOfTimer
 function controller(){
 const curTime = counter(intervalOfTimer);
-const curArr = valsOfTimer(curTime);
-updateTimerDisplay(curArr); 
+    if (curTime>stopTime){
+        //STOP
+        window.clearInterval(intervalTimer); 
+    } else{
+        const curArr = valsOfTimer(curTime);
+        updateTimerDisplay(curArr); 
+    }
+
 }
 
 
