@@ -62,7 +62,7 @@ navHeader.appendChild(linkBeginning);
 //Team nav element
 const linkTeam = linkBeginning.cloneNode(true);
 linkTeam.innerText = 'Team';
-navHeader.appendChild(linkTeam);
+navHeader.prepend(linkTeam);
 //============= CTA ==============
 //h1 text
 const title = qs('h1');

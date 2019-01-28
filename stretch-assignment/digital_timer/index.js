@@ -65,16 +65,17 @@ const curTime = counter(intervalOfTimer);
         //STOP
         window.clearInterval(intervalTimer); 
         toggleClass(timer, 'redDigit');
+        buttonStart.disabled = false;
     } else{
         const curArr = valsOfTimer(curTime);
         updateTimerDisplay(curArr); 
     }
-
 }
 //RESET DISPLAY
 function resetTimerDisplay(){
     updateTimerDisplay(['-','-','-','-']);
     timer.classList = 'digits';
+    buttonStart.disabled = true;
 }
 let counter;
 let intervalTimer;
