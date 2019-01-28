@@ -43,12 +43,19 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //Give the nav links text
 const navLinks = qsa('nav a');
-navLinks[0].innerText = 'Services';
-navLinks[1].innerText = 'Prodecut'
-navLinks[2].innerText = 'Vision'
-navLinks[3].innerText = 'Features'
-navLinks[4].innerText = 'About'
-navLinks[5].innerText = 'Contact'
+// navLinks[0].innerText = 'Services';
+// navLinks[1].innerText = 'Prodecut'
+// navLinks[2].innerText = 'Vision'
+// navLinks[3].innerText = 'Features'
+// navLinks[4].innerText = 'About'
+// navLinks[5].innerText = 'Contact'
+for (let key in siteContent.nav){
+
+  if (!(key === 'img-src')) {
+    navLinks[(key[key.length-1])-1].innerText = siteContent.nav[key];
+  }
+  
+}
 
 //============= CTA ==============
 //h1 text
@@ -81,9 +88,19 @@ const imageContent =qs('.main-content .middle-img');
 imageContent.src = 'img/mid-page-accent.jpg'
 
 //==================CONTACT=====================
- //header 
- const headerContact = qs('.contact h4');
- headerContact.innerText = 'Contact';
+//header 
+const headerContact = qs('.contact h4');
+headerContact.innerText = 'Contact';
+//Paragraphs
+const paragraphsContact = qsa('.contact p');
+paragraphsContact[0].innerHTML = '123 Way 456 Street<br>Somewhere, USA'
+paragraphsContact[1].innerText = '1 (888) 888-8888';
+paragraphsContact[2].innerText = 'sales@greatidea.io';
+
+//=================FOOTER=======================
+//paragraph
+const paragraphFooter = qs('footer p');
+paragraphFooter.innerText = 'Copyright Great Idea! 2018';
 
 function qs(tag){
   return document.querySelector(tag);
