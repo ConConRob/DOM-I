@@ -3,7 +3,7 @@ const secondOnes = document.getElementById('secondOnes');
 const msHundreds = document.getElementById('msHundreds');
 const msTens = document.getElementById('msTens');
 const timer = document.querySelector('.digits')
-
+const buttonStart = document.getElementById('startButton');
 const intervalOfTimer = 10;//ms
 const stopTime = 10000;
 //function to start counter with closure
@@ -40,9 +40,9 @@ function valsOfTimer(curTime){
 function updateText(element, text){
     element.innerText = text;
 }
-//add timer display class
-function addClass(element, classToAdd){
-    element.classList.add(classToAdd)
+//toggle timer display class
+function toggleClass(element, classToAdd){
+    element.classList.toggle(classToAdd)
 }
 //Loop elements of Timer updating time
 function updateTimerDisplay(curArr){
@@ -64,13 +64,25 @@ const curTime = counter(intervalOfTimer);
     if (curTime>stopTime){
         //STOP
         window.clearInterval(intervalTimer); 
-        addClass(timer, 'redDigit');
+        toggleClass(timer, 'redDigit');
     } else{
         const curArr = valsOfTimer(curTime);
         updateTimerDisplay(curArr); 
     }
 
 }
+//RESET DISPLAY
+function resetTimerDisplay(){
+    updateTimerDisplay(['-','-','-','-']);
+    timer.classList = 'digits';
+}
+let counter;
+let intervalTimer;
+function start(){
+    resetTimerDisplay();
+    counter = initCounter();
+    intervalTimer = window.setInterval(controller , intervalOfTimer)
+}
 
-const counter = initCounter();
-const intervalTimer = window.setInterval(controller , intervalOfTimer)
+
+buttonStart.addEventListener('click', start);
