@@ -174,6 +174,11 @@ footer {
     margin: 40px 0 20px;
 }
 
+/* JS toggle styles */ 
+.green {
+    color: greenyellow;
+}
+
 /* Tablet */
 @media (max-width: 768px) {
 

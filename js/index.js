@@ -36,7 +36,7 @@ const siteContent = {
     "copyright" : "Copyright Great Idea! 2018"
   },
 };
-
+//==================NAV=====================
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
@@ -47,9 +47,12 @@ const navLinks = qsa('nav a');
 for (let key in siteContent.nav){
   if (!(key === 'img-src')) {
     navLinks[(key[key.length-1])-1].innerText = siteContent.nav[key];
+    //PART OF STEP 5 change nav links to green
+    navLinks[(key[key.length-1])-1].classList.add('green');
   }
 }
-
+//add 2 new items in the nav
+const navHeader = qs('header nav');
 //============= CTA ==============
 //h1 text
 const title = qs('h1');
