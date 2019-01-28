@@ -36,7 +36,7 @@ const siteContent = {
     "copyright" : "Copyright Great Idea! 2018"
   },
 };
-//==================NAV=====================
+//==================HEADER/NAV=====================
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
@@ -53,6 +53,16 @@ for (let key in siteContent.nav){
 }
 //add 2 new items in the nav
 const navHeader = qs('header nav');
+//beginning nav element
+const linkBeginning = document.createElement('a');
+linkBeginning.innerText = 'Beginning';
+linkBeginning.classList.add('green');
+navHeader.appendChild(linkBeginning);
+//Team nav element
+const linkTeam = linkBeginning.cloneNode(true);
+linkTeam.innerText = 'Team';
+navHeader.appendChild(linkTeam);
+
 //============= CTA ==============
 //h1 text
 const title = qs('h1');
